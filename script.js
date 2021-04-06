@@ -19,11 +19,11 @@ var sortedArray = [];
 var QnAPool = [
   (Question1 = {
     Question: "Current UFC strawweight champion?",
-    a: "Zhang Weili",
+    a: "Weili Zhang",
     b: "Amanda Nunes",
     c: "Valentina Shevchenko",
     d: "Ronda Rousey",
-    correctAnsw: "Zhang Weili",
+    correctAnsw: "Weili Zhang",
   }),
   (Question2 = {
     Question: "Current UFC flyweight women champion?",
@@ -66,14 +66,6 @@ var QnAPool = [
     correctAnsw: "Aljamain Sterling",
   }),
   (Question7 = {
-    Question: "Current UFC bantamweight men champion?",
-    a: "Dominick Cruz",
-    b: "T.J. Dillashaw",
-    c: "Aljamain Sterling",
-    d: "Petr Yan",
-    correctAnsw: "Aljamain Sterling",
-  }),
-  (Question8 = {
     Question: "Current UFC featherweight men champion?",
     a: "Alexander Volkanovski",
     b: "Max Holloway",
@@ -81,15 +73,15 @@ var QnAPool = [
     d: "Conor McGregor",
     correctAnsw: "Alexander Volkanovski",
   }),
-  (Question9 = {
-    Question: "Current UFC lightmweight champion?",
+  (Question8 = {
+    Question: "Current UFC lightweight champion?",
     a: "Dustin Poirier",
     b: "Conor McGregor",
     c: "Khabib Nurmagomedov",
     d: "None",
     correctAnsw: "None",
   }),
-  (Question10 = {
+  (Question9 = {
     Question: "Current UFC Welterweight champion?",
     a: "Colby Covington",
     b: "Kamaru Usman",
@@ -97,7 +89,7 @@ var QnAPool = [
     d: "Georges St-Pierre",
     correctAnsw: "Kamaru Usman",
   }),
-  (Question11 = {
+  (Question10 = {
     Question: "Current UFC Middleweight champion?",
     a: "Kelvin Gastelum",
     b: "Anderson Silva",
@@ -105,7 +97,7 @@ var QnAPool = [
     d: "Israel Adesanya",
     correctAnsw: "Israel Adesanya",
   }),
-  (Question12 = {
+  (Question11 = {
     Question: "Current UFC Light-Heavyweight champion?",
     a: "Jan Błachowicz",
     b: "Jon Jones",
@@ -113,7 +105,7 @@ var QnAPool = [
     d: "Dominick Reyes",
     correctAnsw: "Jan Błachowicz",
   }),
-  (Question13 = {
+  (Question12 = {
     Question: "Current UFC Heavyweight champion?",
     a: "Stipe Miocic",
     b: "Francis Ngannou",
@@ -348,8 +340,13 @@ function setQuestion(questionNumber) {
     qtn.children[0].setAttribute("class", "");
     qtn.setAttribute("class", "hidden");
     done.setAttribute("class", "mn-box-settings center-btn");
-    done.children[0].children[1].textContent =
+    if(globalTime === 0){
+      done.children[0].children[1].textContent =
       "Your final score is " + globalTime + " seconds 😂🤣";
+    }else{
+      done.children[0].children[1].textContent =
+      "Your final score is " + globalTime + " seconds 👍";
+    }
   }
 }
 
