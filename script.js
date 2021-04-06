@@ -13,7 +13,7 @@ var goBackBtn = document.getElementById("go-back-btn");
 var clearScore = document.getElementById("clear-score");
 var globalQstNum = 0;
 var globalScore = 0;
-var globalTime = 60;
+var globalTime = 5;
 var myScores = [];
 var sortedArray = [];
 var QnAPool = [
@@ -203,7 +203,7 @@ function renderList() {
       "User: " +
       myScores[i].User +
       " | Time: " +
-      myScores[i].Time;
+      myScores[i].Time + " sec";
     highScore.children[1].children[0].appendChild(row);
   }
 }
@@ -265,8 +265,9 @@ qtn.addEventListener("click", function (event) {
 
 function startGlobalTime() {
   var timerInterval = setInterval(() => {
-    if (globalQstNum === QnAPool.length) {
+    if (globalQstNum === QnAPool.length || globalTime === 0) {
       clearInterval(timerInterval);
+      setQuestion(globalQstNum);
     } else {
       globalTime--;
       globalTimeTag.children[0].textContent = globalTime;
@@ -295,6 +296,11 @@ function validateQuestion(answer) {
   } else {
     event.target.setAttribute("class", "btn-answ incorrect-ans");
     globalTime -= 10;
+    if(globalTime <= 0){
+      globalTime = 0;
+      globalTimeTag.children[0].textContent = globalTime;
+      setQuestion(globalQstNum);
+    }
   }
   setTimeout(function () {
     globalQstNum++;
@@ -311,7 +317,7 @@ function disableOptions(flag) {
 
 function setQuestion(questionNumber) {
   //   console.log(questionNumber);
-  if (questionNumber < QnAPool.length) {
+  if (questionNumber < QnAPool.length && globalTime !== 0) {
     qtn.children[0].setAttribute("class", "hidden");
     qtn.children[1].setAttribute("class", "");
     question.textContent =
@@ -342,9 +348,11 @@ function setQuestion(questionNumber) {
     qtn.setAttribute("class", "hidden");
     done.setAttribute("class", "mn-box-settings center-btn");
     done.children[0].children[1].textContent =
-      "Your final score is " + globalTime + " seconds";
+      "Your final score is " + globalTime + " seconds 😂🤣";
   }
 }
+
+
 
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
