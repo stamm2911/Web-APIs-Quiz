@@ -13,7 +13,7 @@ var goBackBtn = document.getElementById("go-back-btn");
 var clearScore = document.getElementById("clear-score");
 var globalQstNum = 0;
 var globalScore = 0;
-var globalTime = 5;
+var globalTime = 60;
 var myScores = [];
 var sortedArray = [];
 var QnAPool = [
@@ -65,62 +65,62 @@ var QnAPool = [
     d: "Petr Yan",
     correctAnsw: "Aljamain Sterling",
   }),
-  //   (Question7 = {
-  //     Question: "Current UFC bantamweight men champion?",
-  //     a: "Dominick Cruz",
-  //     b: "T.J. Dillashaw",
-  //     c: "Aljamain Sterling",
-  //     d: "Petr Yan",
-  //     correctAnsw: "Aljamain Sterling",
-  //   }),
-  //   (Question8 = {
-  //     Question: "Current UFC featherweight men champion?",
-  //     a: "Alexander Volkanovski",
-  //     b: "Max Holloway",
-  //     c: "Aljamain Sterling",
-  //     d: "Conor McGregor",
-  //     correctAnsw: "Alexander Volkanovski",
-  //   }),
-  //   (Question9 = {
-  //     Question: "Current UFC lightmweight champion?",
-  //     a: "Dustin Poirier",
-  //     b: "Conor McGregor",
-  //     c: "Khabib Nurmagomedov",
-  //     d: "None",
-  //     correctAnsw: "None",
-  //   }),
-  //   (Question10 = {
-  //     Question: "Current UFC Welterweight champion?",
-  //     a: "Colby Covington",
-  //     b: "Kamaru Usman",
-  //     c: "Tyron Woodley",
-  //     d: "Georges St-Pierre",
-  //     correctAnsw: "Kamaru Usman",
-  //   }),
-  //   (Question11 = {
-  //     Question: "Current UFC Middleweight champion?",
-  //     a: "Kelvin Gastelum",
-  //     b: "Anderson Silva",
-  //     c: "Robert Whittaker",
-  //     d: "Israel Adesanya",
-  //     correctAnsw: "Israel Adesanya",
-  //   }),
-  //   (Question12 = {
-  //     Question: "Current UFC Light-Heavyweight champion?",
-  //     a: "Jan Błachowicz",
-  //     b: "Jon Jones",
-  //     c: "Alexander Gustafsson",
-  //     d: "Dominick Reyes",
-  //     correctAnsw: "Jan Błachowicz",
-  //   }),
-  //   (Question13 = {
-  //     Question: "Current UFC Heavyweight champion?",
-  //     a: "Stipe Miocic",
-  //     b: "Francis Ngannou",
-  //     c: "Daniel Cormier",
-  //     d: "Fabrício Werdum",
-  //     correctAnsw: "Francis Ngannou",
-  //   }),
+  (Question7 = {
+    Question: "Current UFC bantamweight men champion?",
+    a: "Dominick Cruz",
+    b: "T.J. Dillashaw",
+    c: "Aljamain Sterling",
+    d: "Petr Yan",
+    correctAnsw: "Aljamain Sterling",
+  }),
+  (Question8 = {
+    Question: "Current UFC featherweight men champion?",
+    a: "Alexander Volkanovski",
+    b: "Max Holloway",
+    c: "Aljamain Sterling",
+    d: "Conor McGregor",
+    correctAnsw: "Alexander Volkanovski",
+  }),
+  (Question9 = {
+    Question: "Current UFC lightmweight champion?",
+    a: "Dustin Poirier",
+    b: "Conor McGregor",
+    c: "Khabib Nurmagomedov",
+    d: "None",
+    correctAnsw: "None",
+  }),
+  (Question10 = {
+    Question: "Current UFC Welterweight champion?",
+    a: "Colby Covington",
+    b: "Kamaru Usman",
+    c: "Tyron Woodley",
+    d: "Georges St-Pierre",
+    correctAnsw: "Kamaru Usman",
+  }),
+  (Question11 = {
+    Question: "Current UFC Middleweight champion?",
+    a: "Kelvin Gastelum",
+    b: "Anderson Silva",
+    c: "Robert Whittaker",
+    d: "Israel Adesanya",
+    correctAnsw: "Israel Adesanya",
+  }),
+  (Question12 = {
+    Question: "Current UFC Light-Heavyweight champion?",
+    a: "Jan Błachowicz",
+    b: "Jon Jones",
+    c: "Alexander Gustafsson",
+    d: "Dominick Reyes",
+    correctAnsw: "Jan Błachowicz",
+  }),
+  (Question13 = {
+    Question: "Current UFC Heavyweight champion?",
+    a: "Stipe Miocic",
+    b: "Francis Ngannou",
+    c: "Daniel Cormier",
+    d: "Fabrício Werdum",
+    correctAnsw: "Francis Ngannou",
+  }),
 ];
 
 init();
@@ -203,7 +203,8 @@ function renderList() {
       "User: " +
       myScores[i].User +
       " | Time: " +
-      myScores[i].Time + " sec";
+      myScores[i].Time +
+      " sec";
     highScore.children[1].children[0].appendChild(row);
   }
 }
@@ -296,7 +297,7 @@ function validateQuestion(answer) {
   } else {
     event.target.setAttribute("class", "btn-answ incorrect-ans");
     globalTime -= 10;
-    if(globalTime <= 0){
+    if (globalTime <= 0) {
       globalTime = 0;
       globalTimeTag.children[0].textContent = globalTime;
       setQuestion(globalQstNum);
@@ -351,8 +352,6 @@ function setQuestion(questionNumber) {
       "Your final score is " + globalTime + " seconds 😂🤣";
   }
 }
-
-
 
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
