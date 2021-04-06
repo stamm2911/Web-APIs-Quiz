@@ -115,8 +115,28 @@ var QnAPool = [
   }),
 ];
 
-init();
 shuffle(QnAPool);
+
+init();
+
+startbtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  shuffle(QnAPool);
+  globalTimeTag.children[0].textContent = "60";
+  secBfrStrt.textContent = "Ready?";
+  intro.dataset.visibility = "off";
+  intro.setAttribute("class", "hidden");
+  qtn.setAttribute("class", "mn-box-settings");
+  timerQtn(4);
+});
+
+qtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  var answer = event.target.value;
+  if (answer != null) {
+    validateQuestion(answer);
+  }
+});
 
 nameInput.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -151,6 +171,27 @@ clearScore.addEventListener("click", function () {
     renderList();
   }
 });
+
+function init() {
+  var json = localStorage.getItem("Scores");
+  console.log(json);
+
+  if (json === null || json == "") {
+    localStorage.setItem("Scores", "[]");
+    json = localStorage.getItem("Scores");
+    myScores = JSON.parse(json);
+    console.log(myScores);
+  } else {
+    myScores = JSON.parse(json);
+    console.log(myScores);
+  }
+  for (var i = 0; i < myScores.length; i++) {
+    var row = document.createElement("li");
+    row.setAttribute("data-index", i);
+    row.textContent = Number(row.dataset.index) + 1 + ". " + myScores[i];
+    highScore.children[1].children[0].appendChild(row);
+  }
+}
 
 function setScore() {
   var scoreBorad = {
@@ -216,46 +257,6 @@ function arraySorter() {
   }
 }
 
-function init() {
-  var json = localStorage.getItem("Scores");
-  console.log(json);
-
-  if (json === null || json == "") {
-    localStorage.setItem("Scores", "[]");
-    json = localStorage.getItem("Scores");
-    myScores = JSON.parse(json);
-    console.log(myScores);
-  } else {
-    myScores = JSON.parse(json);
-    console.log(myScores);
-  }
-  for (var i = 0; i < myScores.length; i++) {
-    var row = document.createElement("li");
-    row.setAttribute("data-index", i);
-    row.textContent = Number(row.dataset.index) + 1 + ". " + myScores[i];
-    highScore.children[1].children[0].appendChild(row);
-  }
-}
-
-startbtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  shuffle(QnAPool);
-  globalTimeTag.children[0].textContent = "60";
-  secBfrStrt.textContent = "Ready?";
-  intro.dataset.visibility = "off";
-  intro.setAttribute("class", "hidden");
-  qtn.setAttribute("class", "mn-box-settings");
-  timerQtn(4);
-});
-
-qtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  var answer = event.target.value;
-  if (answer != null) {
-    validateQuestion(answer);
-  }
-});
-
 function startGlobalTime() {
   var timerInterval = setInterval(() => {
     if (globalQstNum === QnAPool.length || globalTime === 0) {
@@ -271,7 +272,6 @@ function startGlobalTime() {
 function timerQtn(secLeft) {
   var timerInterval = setInterval(() => {
     secLeft--;
-    // console.log(secLeft);
     secBfrStrt.textContent = secLeft;
     if (secLeft === 0) {
       clearInterval(timerInterval);
@@ -309,7 +309,6 @@ function disableOptions(flag) {
 }
 
 function setQuestion(questionNumber) {
-  //   console.log(questionNumber);
   if (questionNumber < QnAPool.length && globalTime !== 0) {
     qtn.children[0].setAttribute("class", "hidden");
     qtn.children[1].setAttribute("class", "");
@@ -340,12 +339,12 @@ function setQuestion(questionNumber) {
     qtn.children[0].setAttribute("class", "");
     qtn.setAttribute("class", "hidden");
     done.setAttribute("class", "mn-box-settings center-btn");
-    if(globalTime === 0){
+    if (globalTime === 0) {
       done.children[0].children[1].textContent =
-      "Your final score is " + globalTime + " seconds 😂🤣";
-    }else{
+        "Your final score is " + globalTime + " seconds 😂🤣";
+    } else {
       done.children[0].children[1].textContent =
-      "Your final score is " + globalTime + " seconds 👍";
+        "Your final score is " + globalTime + " seconds 👍";
     }
   }
 }
