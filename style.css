@@ -1,5 +1,5 @@
 * {
-  /* font-family: cursive; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 :root {
@@ -15,27 +15,27 @@ body {
 }
 
 header {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    justify-content: flex-end;
-    padding: 30px 100px 50px 0;
-    font-size: 2.5vw;
-    color: var(--main-color);
-    text-shadow: 0px 0px 5px var(--main-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px 100px 50px 0;
+  font-size: 2.5vw;
+  color: var(--main-color);
+  text-shadow: 0px 0px 5px var(--main-color);
 }
 
-input{
-    display: block;
+input {
+  display: block;
 }
 
 .hidden {
-    display: none;
-    transition: 1s;
+  display: none;
+  transition: 1s;
 }
 
-.center-btn{
+.center-btn {
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -43,14 +43,16 @@ input{
   justify-content: center;
 }
 
+#name-input {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mn-box-settings {
   height: fit-content;
   width: 900px;
   padding: 45px;
   background-color: var(--background-color);
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   border-radius: 20px;
   border: 4px solid white;
   box-shadow: inset 0px 0px 25px var(--main-color),
@@ -77,7 +79,7 @@ input{
   padding: 5px;
 }
 
-.btn-answ{
+.btn-answ {
   background-color: transparent;
   border-radius: 0.6em;
   cursor: pointer;
@@ -91,11 +93,11 @@ input{
   padding: 5px;
 }
 
-.correct-ans{
+.correct-ans {
   box-shadow: 0 0 10px 0 green inset, 0 0 10px 4px green;
 }
 
-.incorrect-ans{
+.incorrect-ans {
   box-shadow: 0 0 10px 0 red inset, 0 0 10px 4px red;
 }
 
@@ -103,7 +105,7 @@ input{
   box-shadow: 0 0 10px 0 var(--main-color) inset, 0 0 10px 4px var(--main-color);
 }
 
-#name-input{
+#name-input {
   margin-top: 7px;
   text-align: center;
 }
@@ -114,7 +116,7 @@ h1 {
 }
 
 #intro input {
-  display:inline-block
+  display: inline-block;
 }
 
 li {

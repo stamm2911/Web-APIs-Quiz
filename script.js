@@ -344,7 +344,7 @@ function setQuestion(questionNumber) {
         "Your final score is " + globalTime + " seconds 😂🤣";
     } else {
       done.children[0].children[1].textContent =
-        "Your final score is " + globalTime + " seconds 👍";
+        "Your final score is " + globalTime + " seconds 👍👍";
     }
   }
 }
