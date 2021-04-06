@@ -144,7 +144,7 @@ nameInput.addEventListener("submit", function (event) {
     setScore();
     nameInput.value = "";
   } else {
-    alert("Please input a name");
+    alert("Please enter a name");
   }
 });
 
@@ -154,7 +154,7 @@ nameInputBtn.addEventListener("click", function (event) {
     setScore();
     nameInput.value = "";
   } else {
-    alert("Please input a name");
+    alert("Please enter a name");
   }
 });
 
@@ -341,10 +341,10 @@ function setQuestion(questionNumber) {
     done.setAttribute("class", "mn-box-settings center-btn");
     if (globalTime === 0) {
       done.children[0].children[1].textContent =
-        "Your final score is " + globalTime + " seconds 😂🤣";
+        "Your final score-time is " + globalTime + " seconds 😂🤣";
     } else {
       done.children[0].children[1].textContent =
-        "Your final score is " + globalTime + " seconds 👍👍";
+        "Your final score-time is " + globalTime + " seconds 👍👍";
     }
   }
 }
