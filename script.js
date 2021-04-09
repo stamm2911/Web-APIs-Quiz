@@ -27,16 +27,16 @@ var QnAPool = [
   }),
   (Question2 = {
     Question: "Current UFC flyweight women champion?",
-    a: "Carla Esparza",
+    a: "Valentina Shevchenko",
     b: "Joanna Jędrzejczyk",
     c: "Rose Namajunas",
-    d: "Valentina Shevchenko",
+    d: "Carla Esparza",
     correctAnsw: "Valentina Shevchenko",
   }),
   (Question3 = {
     Question: "Current UFC Bantamweight women champion?",
-    a: "Valentina Shevchenko",
-    b: "Amanda Nunes",
+    a: "Amanda Nunes",
+    b: "Valentina Shevchenko",
     c: "Miesha Tate",
     d: "Holly Holm",
     correctAnsw: "Amanda Nunes",
@@ -51,17 +51,17 @@ var QnAPool = [
   }),
   (Question5 = {
     Question: "Current UFC flytweight men champion?",
-    a: "Henry Cejudo",
-    b: "Demetrious Johnson",
-    c: "Brandon Moreno",
-    d: "Deiveson Figueiredo",
+    a: "Deiveson Figueiredo",
+    b: "Henry Cejudo",
+    c: "Demetrious Johnson",
+    d: "Brandon Moreno",
     correctAnsw: "Deiveson Figueiredo",
   }),
   (Question6 = {
     Question: "Current UFC bantamweight men champion?",
-    a: "Dominick Cruz",
-    b: "T.J. Dillashaw",
-    c: "Aljamain Sterling",
+    a: "Aljamain Sterling",
+    b: "Dominick Cruz",
+    c: "T.J. Dillashaw",
     d: "Petr Yan",
     correctAnsw: "Aljamain Sterling",
   }),
@@ -75,10 +75,10 @@ var QnAPool = [
   }),
   (Question8 = {
     Question: "Current UFC lightweight champion?",
-    a: "Dustin Poirier",
-    b: "Conor McGregor",
-    c: "Khabib Nurmagomedov",
-    d: "None",
+    a: "None",
+    b: "Dustin Poirier",
+    c: "Conor McGregor",
+    d: "Khabib Nurmagomedov",
     correctAnsw: "None",
   }),
   (Question9 = {
@@ -124,7 +124,6 @@ startbtn.addEventListener("click", function (event) {
   shuffle(QnAPool);
   globalTimeTag.children[0].textContent = "60";
   secBfrStrt.textContent = "Ready?";
-  intro.dataset.visibility = "off";
   intro.setAttribute("class", "hidden");
   qtn.setAttribute("class", "mn-box-settings");
   timerQtn(4);

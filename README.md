@@ -1,14 +1,16 @@
 # Web APIs: Code Quiz
 
-## User Story
+## Table of Contents 
+- [Instructions](#Instructions)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Deployed application](#Deployed-application)
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+## Instructions
 
-## Acceptance Criteria
+Try to answer all the following questions within the time limit. Keep in mind that incorrect answers will penalize your score-time by ten seconds!
+
+## Usage
 
 ```
 GIVEN I am taking a code quiz
@@ -24,6 +26,10 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
+## Credits
+This project was posbile with the knowledge acquired in Tecnologico de Monterrey University Coding Bootcamp https://bootcamp.tec.mx/coding/ 
+
 ## Deployed application
 
 https://stamm2911.github.io/Web-APIs-Quiz/
+![Deployed application](img/mainPage.PNG)

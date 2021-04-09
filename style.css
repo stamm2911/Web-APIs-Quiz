@@ -4,6 +4,9 @@
 
 :root {
   --main-color: rgb(0, 174, 255);
+  --main-color-highscore: rgb(0, 174, 255, 0.15);
+  --main-color2: rgb(255, 238, 0);
+  --main-color-highscore2: rgb(255, 238, 0, 0.15);
   --background-color: #202020;
 }
 
@@ -121,7 +124,7 @@ h1 {
 
 li {
   text-align: left;
-  background-color: rgb(0, 174, 255, 0.15);
+  background-color: var(--main-color-highscore);
   margin: 5px;
 }
 
@@ -131,5 +134,21 @@ li {
   }
   header {
     font-size: 7.5vw;
+  }
+  header {
+    color: var(--main-color2);
+    text-shadow: 0px 0px 5px var(--main-color2);
+  }
+  .mn-box-settings {
+    box-shadow: inset 0px 0px 25px var(--main-color2),
+      0px 0px 25px var(--main-color2);
+    color: var(--main-color2);
+  }
+  li {
+    background-color: var(--main-color-highscore2);
+  }
+  .btn-style1:hover {
+    box-shadow: 0 0 10px 0 var(--main-color2) inset,
+      0 0 10px 4px var(--main-color2);
   }
 }
